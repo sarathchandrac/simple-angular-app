@@ -35,8 +35,31 @@ Note: if errors in installing all packages do `npm i` to install all dev package
 
 ## Add new pages:
 ```
-ng generate component my-new-component
-ng g component my-new-component #alias-name
+# ng g component my-new-component #alias-name
+ng g component page-one
 
 ```
+## Load page-one component in the home page
+- add path to routes in `app-routing.module.ts`
+~~~
+import { PageOneComponent } from './page-one/page-one.component';
+-----
+const routes: Routes = [
+  { path: 'page-one', component: PageOneComponent },
+];
+~~~
+- add navigational link to `app.component.html`
+~~~
+<h1>Angular Router App</h1>
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+  <ul>
+    <li><a routerLink="/page-one" routerLinkActive="active">Page One</a></li>
+  </ul>
+</nav>
+<!-- The routed views render in the <router-outlet>-->
+<router-outlet></router-outlet>
+~~~
+- 
+
 
